@@ -9,7 +9,7 @@ int err_code = 0;
 FILE *strm = NULL;
 char *built[] = {"push", "pall"};
 instruction_t *ls[] = {&pu, &pa};
-void mall_ch()
+/**void mall_ch()
 {
 	command = malloc(sizeof(char));
 	if (command == NULL)
@@ -19,7 +19,7 @@ void mall_ch()
 	}
 	free(command);
 	command = NULL;
-}
+}**/
 void filter(void)
 {
 	int i = 0, cp = 1, j = 0, x;
@@ -58,7 +58,6 @@ int main(int arc, char **arv)
 		write(STDERR_FILENO, err1, strlen(err1));
 		exit(EXIT_FAILURE);
 	}
-	mall_ch();
 	strm = fopen(arv[1], "r");
 	if (strm == NULL)
 	{
