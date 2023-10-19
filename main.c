@@ -1,14 +1,15 @@
 #include "monty.h"
 stack_t *top = NULL;
 int line = 0;
-char o_code[] = {1, 2};
 char *buf = NULL, *command = NULL, *arg = NULL;
-instruction_t pu = {&(o_code[0]), &push},
-pa = {&(o_code[1]), &pall};
 int err_code = 0;
 FILE *strm = NULL;
-char *built[] = {"push", "pall"};
-instruction_t *ls[] = {&pu, &pa};
+instruction_t ls[] = {
+{"push", &push},
+{"pall", &pall},
+{"pint", &pint},
+{NULL, NULL}
+};
 /**void mall_ch()
 {
 	command = malloc(sizeof(char));
@@ -100,24 +101,16 @@ int main(int arc, char **arv)
 
 void built_ins()
 {
-	int b_code[] = {1, 2}, ck = 0, ck2 = 1;
-	int i = 0, j = 0;
+	int ck = 0, ck2 = 1;
+	int i = 0;
 	void (*fn_ptr)(stack_t **stack, unsigned int line_number) = NULL;
-	while (built[i])
+	while ((ls[i]).opcode != NULL)
 	{
-		if (strcmp(command, built[i]) == 0)
+		if (strcmp(command, (ls[i]).opcode) == 0)
 		{
-			while(ls[j])
-			{
-				if (*((ls[j])->opcode) == (char)(b_code[i]))
-				{
-					fn_ptr = (ls[j])->f;
-					(fn_ptr)(&top, line);
-					ck = 1;
-					break;
-				}
-				j++;
-			}
+			fn_ptr = (ls[i]).f;
+			(fn_ptr)(&top, line);
+			ck = 1;
 			break;
 		}
 		i++;

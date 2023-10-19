@@ -44,3 +44,13 @@ void pall(stack_t **stack, unsigned int line_number)
                 tmp = tmp->next;
         }
 }
+void pint(stack_t **stack, unsigned int line_number)
+{
+	(void)line_number;
+	if ((*stack) == NULL)
+	{
+		err_code = 4;
+		err();
+	}
+	printf("%d\n", (*stack)->n);
+}

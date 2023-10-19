@@ -31,6 +31,9 @@ void err()
 		case 3:
 			fprintf(stderr, "Error: malloc failed\n");
 			break;
+		case 4:
+			fprintf(stderr, "L%d: can't pint, stack empty\n", line);
+			break;
 	}
 	free(command);
 	command = NULL;
