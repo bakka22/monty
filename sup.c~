@@ -23,7 +23,6 @@ void err()
 	free(buf);
 	buf = NULL;
 	free_stack();
-	fclose(strm);
 	switch (err_code)
 	{
 		case 1:
