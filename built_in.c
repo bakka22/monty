@@ -70,3 +70,21 @@ void pop(stack_t **stack, unsigned int line_number)
 	if (*stack)
 		(*stack)->prev = NULL;
 }
+void swap(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp, *tmp2;
+
+	(void)line_number;
+	tmp = *stack;
+	if (!tmp || !(tmp->next))
+	{
+		err_code = 6;
+		err();
+	}
+	tmp2 = tmp->next;
+	tmp->next = tmp2->next;
+	tmp2->next = tmp;
+	tmp->prev = tmp2;
+	tmp2->prev = NULL;
+	(*stack) = tmp2;
+}

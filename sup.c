@@ -37,6 +37,9 @@ void err()
 		case 5:
 			fprintf(stderr, "L%d: can't pop an empty stack\n", line);
 			break;
+		case 6:
+			fprintf(stderr, "L%d: can't swap, stack too short\n", line);
+			break;
 	}
 	free(command);
 	command = NULL;

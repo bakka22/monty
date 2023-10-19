@@ -66,9 +66,25 @@ void pop(stack_t **stack, unsigned int line_number)
 		err();
 	}
 	*stack = tmp->next;
-	printf("tmp->next is valid\n");
 	free(tmp);
-	printf("free is valid\n");
 	if (*stack)
 		(*stack)->prev = NULL;
+}
+void swap(stack_t **stack, unsigned int line_number)
+{
+	(void)line_number;
+	stack_t *tmp, *tmp2;
+
+	tmp = *stack;
+	if (!tmp || !(tmp->next))
+	{
+		err_code = 6;
+		err();
+	}
+	tmp2 = tmp->next;
+	tmp->next = tmp2->next;
+	tmp2->next = tmp;
+	tmp->prev = tmp2;
+	tmp2->prev = NULL;
+	(*stack) = tmp2;
 }

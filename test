@@ -1,7 +1,7 @@
 
          push 1         
- push  33
-pint
+swap
+ push  2
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
 
 
@@ -9,12 +9,15 @@ pint
 
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           push         3 
-pint
+
 push 4 dmciosndciushnurhnicmisdmdioncio                                 
   pall     fwefwigbduihuwdsnisk     
+swap
+pall
 pop
 pop
-pop
+pall
+swap
 pall
 pop
 pall
