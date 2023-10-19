@@ -12,7 +12,6 @@ instruction_t *ls[] = {&pu, &pa};
 void filter(void)
 {
 	int i = 0, cp = 1, j = 0, x;
-	ssize_t y = 0;
 
 	x = strlen(buf);
 	command = malloc(sizeof(char) * x + 1);
@@ -41,6 +40,7 @@ int main(int arc, char **arv)
 	char err1[] = "USAGE: monty file\n";
 	char err2[] = "Error: Can't open file ";
 	size_t n = 0;
+	ssize_t y = 0;
 
 	if (arc != 2)
 	{
