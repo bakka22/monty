@@ -43,6 +43,21 @@ void err()
 		case 7:
 			fprintf(stderr, "L%d: can't add, stack too short\n", line);
 			break;
+		case 8:
+			fprintf(stderr, "L%d: can't sub, stack too short\n", line);
+			break;
+		case 9:
+			fprintf(stderr, "L%d: can't div, stack too short\n", line);
+			break;
+		case 10:
+			fprintf(stderr, "L%d: can't mul, stack too short\n", line);
+			break;
+		case 11:
+			fprintf(stderr, "L%d: division by zero\n", line);
+			break;
+		case 12:
+			fprintf(stderr, "L%d: can't mod, stack too short\n", line);
+			break;
 	}
 	free(command);
 	command = NULL;
