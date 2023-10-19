@@ -2,9 +2,19 @@
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new;
+	int ck = 1, i = 0;
 
 	(void)line_number;
-	if (arg == NULL || !(is_num()))
+	while (built[i])
+	{
+		if (strcmp(built[i], arg) == 0)
+		{
+			ck = 0;
+			break;
+		}
+		i++;
+	}
+	if ((arg == NULL || !(is_num())) && ck)
 	{
 		err_code = 1;
 		err();

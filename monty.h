@@ -46,6 +46,7 @@ extern char *buf, *command, *arg;
 extern instruction_t pu, pa;
 extern instruction_t *ls[];
 extern int err_code;
+extern char *built[];
 void err();
 int is_num();
 #endif

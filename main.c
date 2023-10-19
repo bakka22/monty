@@ -7,6 +7,7 @@ instruction_t pu = {&(o_code[0]), &push},
 pa = {&(o_code[1]), &pall};
 int err_code = 0;
 FILE *strm = NULL;
+char *built[] = {"push", "pall"};
 instruction_t *ls[] = {&pu, &pa};
 void filter(void)
 {
@@ -70,7 +71,6 @@ int main(int arc, char **arv)
 
 void built_ins()
 {
-	char *built[] = {"push", "pall"};
 	int b_code[] = {1, 2};
 	int i = 0, j = 0;
 	void (*fn_ptr)(stack_t **stack, unsigned int line_number);
