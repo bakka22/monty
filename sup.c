@@ -6,11 +6,13 @@ int is_num()
 	while (arg[i])
 	{
 		if (arg[i] >= 48 && arg[i] <= 57)
+		{
 			is_n = 1;
+			break;
+		}
 		else
 		{
 			is_n = 0;
-			break;
 		}
 		i++;
 	}
