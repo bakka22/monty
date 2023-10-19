@@ -40,6 +40,9 @@ void err()
 		case 6:
 			fprintf(stderr, "L%d: can't swap, stack too short\n", line);
 			break;
+		case 7:
+			fprintf(stderr, "L%d: can't add, stack too short\n", line);
+			break;
 	}
 	free(command);
 	command = NULL;

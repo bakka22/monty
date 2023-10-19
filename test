@@ -1,6 +1,5 @@
 
          push 1         
-swap
  push  2
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
 
@@ -12,12 +11,11 @@ swap
 
 push 4 dmciosndciushnurhnicmisdmdioncio                                 
   pall     fwefwigbduihuwdsnisk     
-swap
+add
 pall
 pop
 pop
 pall
-swap
 pall
 pop
 pall

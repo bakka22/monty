@@ -10,6 +10,7 @@ instruction_t ls[] = {
 {"pint", &pint},
 {"pop", &pop},
 {"swap", &swap},
+{"add", &add},
 {NULL, NULL}
 };
 /**void mall_ch()
