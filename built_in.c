@@ -54,3 +54,19 @@ void pint(stack_t **stack, unsigned int line_number)
 	}
 	printf("%d\n", (*stack)->n);
 }
+void pop(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp;
+
+	(void)line_number;
+	tmp = *stack;
+	if (tmp == NULL)
+	{
+		err_code = 5;
+		err();
+	}
+	*stack = tmp->next;
+	free(tmp);
+	if (*stack)
+		(*stack)->prev = NULL;
+}

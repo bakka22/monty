@@ -34,6 +34,9 @@ void err()
 		case 4:
 			fprintf(stderr, "L%d: can't pint, stack empty\n", line);
 			break;
+		case 5:
+			fprintf(stderr, "L%d: can't pop an empty stack\n", line);
+			break;
 	}
 	free(command);
 	command = NULL;

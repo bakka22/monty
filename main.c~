@@ -104,11 +104,11 @@ void built_ins()
 	int ck = 0, ck2 = 1;
 	int i = 0;
 	void (*fn_ptr)(stack_t **stack, unsigned int line_number) = NULL;
-	while ((ls[i])->opcode != NULL)
+	while ((ls[i]).opcode != NULL)
 	{
-		if (strcmp(command, (ls[i])->opcode) == 0)
+		if (strcmp(command, (ls[i]).opcode) == 0)
 		{
-			fn_ptr = (ls[i])->f;
+			fn_ptr = (ls[i]).f;
 			(fn_ptr)(&top, line);
 			ck = 1;
 			break;

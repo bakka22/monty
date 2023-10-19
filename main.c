@@ -8,6 +8,7 @@ instruction_t ls[] = {
 {"push", &push},
 {"pall", &pall},
 {"pint", &pint},
+{"pop", &pop},
 {NULL, NULL}
 };
 /**void mall_ch()
