@@ -10,6 +10,11 @@ void push(stack_t **stack, unsigned int line_number)
 		err();
 	}
 	new = malloc(sizeof(stack_t));
+	if (new == NULL)
+	{
+		err_code = 3;
+		err();
+	}
         new->n = atoi(arg);
         if ((*stack) == NULL)
         {

@@ -30,6 +30,9 @@ void err()
 		case 2:
 			fprintf(stderr, "L%d: unknown instruction %s\n", line, command);
 			break;
+		case 3:
+			fprintf(stderr, "Error: malloc failed\n");
+			break;
 	}
 	free(command);
 	command = NULL;

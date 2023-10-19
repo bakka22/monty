@@ -15,6 +15,11 @@ void filter(void)
 
 	x = strlen(buf);
 	command = malloc(sizeof(char) * x + 1);
+	if (command == NULL)
+	{
+		err_code = 3;
+		err();
+	}
 	command[x] = '\0';
 	while(buf[i])
 	{
@@ -35,6 +40,7 @@ int main(int arc, char **arv)
 	char err1[] = "USAGE: monty file\n";
 	char err2[] = "Error: Can't open file ";
 	size_t n = 0;
+	ssize_t y = 0;
 
 	if (arc != 2)
 	{
@@ -49,7 +55,13 @@ int main(int arc, char **arv)
 		write(STDERR_FILENO, "\n", 1);
 		exit(EXIT_FAILURE);
 	}
-	while (getline(&buf, &n, strm) != -1)
+	y = getline(&buf, &n, strm);
+	if (buf == NULL)
+	{
+		err_code = 3;
+		err();
+	}
+	while (y != -1)
 	{
 		line++;
 		filter();
@@ -61,6 +73,12 @@ int main(int arc, char **arv)
 		free(buf);
 		buf = NULL;
 		arg = NULL;
+		y = getline(&buf, &n, strm);
+		if (buf == NULL)
+		{
+			err_code = 3;
+			err();
+		}
 	}
 	free_stack();
 	free(buf);

@@ -12,9 +12,15 @@ instruction_t *ls[] = {&pu, &pa};
 void filter(void)
 {
 	int i = 0, cp = 1, j = 0, x;
+	ssize_t y = 0;
 
 	x = strlen(buf);
 	command = malloc(sizeof(char) * x + 1);
+	if (command == NULL)
+	{
+		err_code = 3;
+		err();
+	}
 	command[x] = '\0';
 	while(buf[i])
 	{
@@ -49,7 +55,13 @@ int main(int arc, char **arv)
 		write(STDERR_FILENO, "\n", 1);
 		exit(EXIT_FAILURE);
 	}
-	while (getline(&buf, &n, strm) != -1)
+	y = getline(&buf, &n, strm);
+	if (buf == NULL)
+	{
+		err_code = 3;
+		err();
+	}
+	while (y != -1)
 	{
 		line++;
 		filter();
@@ -61,6 +73,12 @@ int main(int arc, char **arv)
 		free(buf);
 		buf = NULL;
 		arg = NULL;
+		y = getline(&buf, &n, strm);
+		if (buf == NULL)
+		{
+			err_code = 3;
+			err();
+		}
 	}
 	free_stack();
 	free(buf);
@@ -71,9 +89,9 @@ int main(int arc, char **arv)
 
 void built_ins()
 {
-	int b_code[] = {1, 2}, ck = 0;
+	int b_code[] = {1, 2}, ck = 0, ck2 = 1;
 	int i = 0, j = 0;
-	void (*fn_ptr)(stack_t **stack, unsigned int line_number);
+	void (*fn_ptr)(stack_t **stack, unsigned int line_number) = NULL;
 	while (built[i])
 	{
 		if (strcmp(command, built[i]) == 0)
@@ -93,7 +111,17 @@ void built_ins()
 		}
 		i++;
 	}
-	if (!ck)
+	for (i = 0; command[i]; i++)
+	{
+		if (command[i] == ' ' || command[i] == '\t' || command[i] == '\n')
+			continue;
+		else
+		{
+			ck2 = 0;
+			break;
+		}
+	}
+	if (!ck && !ck2)
 	{
 		err_code = 2;
 		err();

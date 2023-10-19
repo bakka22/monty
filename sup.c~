@@ -28,7 +28,10 @@ void err()
 			fprintf(stderr, "L%d: usage: push integer\n", line);
 			break;
 		case 2:
-			fprintf("L%d: unknown instruction %s\n", line, command);
+			fprintf(stderr, "L%d: unknown instruction %s\n", line, command);
+			break;
+		case 3:
+			fprintf(stderr, "Error: malloc failed\n", line);
 			break;
 	}
 	free(command);
