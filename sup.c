@@ -20,18 +20,21 @@ int is_num()
 }
 void err()
 {
-	free(command);
-	command = NULL;
-	free(buf);
-	buf = NULL;
 	free_stack();
 	fclose(strm);
 	switch (err_code)
 	{
 		case 1:
-		fprintf(stderr, "L%d: usage: push integer\n", line);
-		break;
+			fprintf(stderr, "L%d: usage: push integer\n", line);
+			break;
+		case 2:
+			fprintf(stderr, "L%d: unknown instruction %s\n", line, command);
+			break;
 	}
+	free(command);
+	command = NULL;
+	free(buf);
+	buf = NULL;
 	exit(EXIT_FAILURE);
 }
 void free_stack()

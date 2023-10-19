@@ -71,9 +71,9 @@ int main(int arc, char **arv)
 
 void built_ins()
 {
-	int b_code[] = {1, 2};
+	int b_code[] = {1, 2}, ck = 0, ck2 = 1;
 	int i = 0, j = 0;
-	void (*fn_ptr)(stack_t **stack, unsigned int line_number);
+	void (*fn_ptr)(stack_t **stack, unsigned int line_number) = NULL;
 	while (built[i])
 	{
 		if (strcmp(command, built[i]) == 0)
@@ -84,6 +84,7 @@ void built_ins()
 				{
 					fn_ptr = (ls[j])->f;
 					(fn_ptr)(&top, line);
+					ck = 1;
 					break;
 				}
 				j++;
@@ -91,5 +92,20 @@ void built_ins()
 			break;
 		}
 		i++;
+	}
+	for (i = 0; command[i]; i++)
+	{
+		if (command[i] == ' ' || command[i] == '\t' || command[i] == '\n')
+			continue;
+		else
+		{
+			ck2 = 0;
+			break;
+		}
+	}
+	if (!ck && !ck2)
+	{
+		err_code = 2;
+		err();
 	}
 }
