@@ -32,7 +32,7 @@ void err_sup(void)
 			fprintf(stderr, "L%d: can't pchar, value out of range\n", line);
 			break;
 		case 14:
-			fprintf(stderr, "L%d: can't pchar, stack empt\n", line);
+			fprintf(stderr, "L%d: can't pchar, stack empty\n", line);
 			break;
 	}
 	free_stack();
