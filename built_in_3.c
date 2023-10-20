@@ -46,11 +46,10 @@ void pchar(stack_t **stack, unsigned int line_number)
 		err_code = 14;
 		err();
 	}
-	if (tmp->n < 32 || tmp->n > 126)
+	if (tmp->n < 0 || tmp->n > 127)
 	{
 		err_code = 13;
 		err();
 	}
-	putchar(tmp->n);
-	putchar('\n');
+	printf("%c\n", tmp->n);
 }
