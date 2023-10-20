@@ -108,6 +108,8 @@ void built_ins(void)
 	int i = 0;
 	void (*fn_ptr)(stack_t **stack, unsigned int line_number) = NULL;
 
+	if (command[0] == '#')
+		return;
 	while ((ls[i]).opcode != NULL)
 	{
 		if (strcmp(command, (ls[i]).opcode) == 0)
