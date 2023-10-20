@@ -37,15 +37,16 @@ void mod(stack_t **stack, unsigned int line_number)
 */
 void pchar(stack_t **stack, unsigned int line_number)
 {
-	stack_t *tmp = *stack;
+	stack_t *tmp;
 
 	(void)line_number;
 
-	if (!tmp)
+	if (!(stack) || !(*stack))
 	{
 		err_code = 14;
 		err();
 	}
+	tmp = *stack;
 	if (tmp->n < 0 || tmp->n > 127)
 	{
 		err_code = 13;
