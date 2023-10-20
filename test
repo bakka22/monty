@@ -1,25 +1,21 @@
-
-         push   0
-pchar
- push  2
+pstr
+         push   48
+ push  49
 nop                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
 
 
 
 nop
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          push         3 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          push         50 
 
-push 94 dmciosndciushnurhnicmisdmdioncio                                 
-pchar
-  pall     fwefwigbduihuwdsnisk     
-add
-pchar
+push 51 dmciosndciushnurhnicmisdmdioncio                                 
 nop
-pall
+pstr
 pop
 pop
 pall
 pall
 pop
 pall
+pop
