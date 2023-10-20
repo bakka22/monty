@@ -52,5 +52,6 @@ void pchar(stack_t **stack, unsigned int line_number)
 		err_code = 13;
 		err();
 	}
-	printf("%c\n", tmp->n);
+	if (tmp->n != 0)
+		printf("%c\n", tmp->n);
 }

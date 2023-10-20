@@ -29,7 +29,7 @@ void err_sup(void)
 	switch (err_code)
 	{
 		case 13:
-			fprintf(stderr, "L%d: can't pchar, value out of range\n", line);
+			fprintf(stderr, "L%d: casn't pchar, value out of range\n", line);
 			break;
 		case 14:
 			fprintf(stderr, "L%d: can't pchar, stack empty\n", line);
