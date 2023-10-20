@@ -1,4 +1,10 @@
 #include "monty.h"
+/**
+*mod - monty command
+*@stack: stack to work on
+*@line_number: number of current line
+*Retrun: nothing
+*/
 void mod(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp;

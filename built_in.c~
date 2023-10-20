@@ -21,20 +21,20 @@ void push(stack_t **stack, unsigned int line_number)
 		err_code = 3;
 		err();
 	}
-	new->n = atoi(arg);
-	if ((*stack) == NULL)
-	{
-		new->next = NULL;
-		new->prev = NULL;
-		(*stack) = new;
-	}
-	else
-	{
-		(*stack)->prev = new;
-		new->next = (*stack);
-		new->prev = NULL;
-		(*stack) = new;
-	}
+        new->n = atoi(arg);
+        if ((*stack) == NULL)
+        {
+                new->next = NULL;
+                new->prev = NULL;
+                (*stack) = new;
+        }
+        else
+        {
+                (*stack)->prev = new;
+                new->next = (*stack);
+                new->prev = NULL;
+                (*stack) = new;
+        }
 }
 /**
 *pall - monty command
@@ -46,15 +46,15 @@ void pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp;
 
-	(void)line_number;
-	if ((*stack) == NULL)
-		return;
-	tmp = (*stack);
-	while (tmp)
-	{
-		printf("%d\n", tmp->n);
-		tmp = tmp->next;
-	}
+        (void)line_number;
+        if ((*stack) == NULL)
+                return;
+        tmp = (*stack);
+        while (tmp)
+        {
+                printf("%d\n", tmp->n);
+                tmp = tmp->next;
+        }
 }
 /**
 *pint - monty command

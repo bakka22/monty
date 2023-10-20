@@ -1,5 +1,9 @@
 #include "monty.h"
-int is_num()
+/**
+*is_num - check if string is number
+*Retrun: nothing
+*/
+int is_num(void)
 {
 	int i = 0, is_n = 0;
 
@@ -16,10 +20,26 @@ int is_num()
 	}
 	return (is_n);
 }
-void err()
+/**
+*err_sup - ...
+*Return: nothing
+*/
+void err_sup(void)
 {
 	free_stack();
 	fclose(strm);
+	free(command);
+	command = NULL;
+	free(buf);
+	buf = NULL;
+	exit(EXIT_FAILURE);
+}
+/**
+*err - manage errors
+*Return: nothing
+*/
+void err(void)
+{
 	switch (err_code)
 	{
 		case 1:
@@ -53,23 +73,24 @@ void err()
 			fprintf(stderr, "L%d: can't mul, stack too short\n", line);
 			break;
 		case 11:
-			fprintf("L%d: division by zero\n", line);
+			fprintf(stderr, "L%d: division by zero\n", line);
 			break;
 		case 12:
 			fprintf(stderr, "L%d: can't mod, stack too short\n", line);
 			break;
 	}
-	free(command);
-	command = NULL;
-	free(buf);
-	buf = NULL;
-	exit(EXIT_FAILURE);
+	err_sup();
 }
-void free_stack()
+/**
+*free_stack - free the stack
+*Return: nothing
+*/
+void free_stack(void)
 {
 	stack_t *tmp, *tmp2;
+
 	tmp = tmp2 = top;
-	while(tmp)
+	while (tmp)
 	{
 		tmp = tmp->next;
 		free(tmp2);

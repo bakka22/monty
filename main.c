@@ -1,34 +1,34 @@
 #include "monty.h"
-stack_t *top = NULL;
-int line = 0;
-char *buf = NULL, *command = NULL, *arg = NULL;
-int err_code = 0;
-FILE *strm = NULL;
-instruction_t ls[] = {
-{"push", &push},
-{"pall", &pall},
-{"pint", &pint},
-{"pop", &pop},
-{"swap", &swap},
-{"add", &add},
-{"nop", &nop},
-{"sub", &sub},
-{"div", &div2},
-{"mul", &mul},
-{"mod", &mod},
-{NULL, NULL}
-};
-/**void mall_ch()
+#include "sub.h"
+/**
+*sup - ...
+*@arc : ...
+*@arv : ...
+*Return:nothing
+*/
+void sup(int arc, char **arv)
 {
-	command = malloc(sizeof(char));
-	if (command == NULL)
+	char err1[] = "USAGE: monty file\n";
+	char err2[] = "Error: Can't open file ";
+
+	if (arc != 2)
 	{
-		err_code = 3;
-		err();
+	write(STDERR_FILENO, err1, strlen(err1));
+		exit(EXIT_FAILURE);
 	}
-	free(command);
-	command = NULL;
-}**/
+	strm = fopen(arv[1], "r");
+	if (strm == NULL)
+	{
+		write(STDERR_FILENO, err2, strlen(err2));
+		write(STDERR_FILENO, arv[1], strlen(arv[1]));
+		write(STDERR_FILENO, "\n", 1);
+		exit(EXIT_FAILURE);
+	}
+}
+/**
+*filter - remove heading spaces from input
+*Retrun: nothing
+*/
 void filter(void)
 {
 	int i = 0, cp = 1, j = 0, x;
@@ -41,7 +41,7 @@ void filter(void)
 		err();
 	}
 	command[x] = '\0';
-	while(buf[i])
+	while (buf[i])
 	{
 		if ((buf[i] == ' ' || buf[i] == '\n') && cp)
 		{
@@ -55,26 +55,18 @@ void filter(void)
 		j++;
 	}
 }
+/**
+*main - entery point
+*@arc : arguments count
+*@arv : arguments vector
+*Return: 0 on success else otherwise
+*/
 int main(int arc, char **arv)
 {
-	char err1[] = "USAGE: monty file\n";
-	char err2[] = "Error: Can't open file ";
 	size_t n = 0;
 	ssize_t y = 0;
 
-	if (arc != 2)
-	{
-		write(STDERR_FILENO, err1, strlen(err1));
-		exit(EXIT_FAILURE);
-	}
-	strm = fopen(arv[1], "r");
-	if (strm == NULL)
-	{
-		write(STDERR_FILENO, err2, strlen(err2));
-		write(STDERR_FILENO, arv[1], strlen(arv[1]));
-		write(STDERR_FILENO, "\n", 1);
-		exit(EXIT_FAILURE);
-	}
+	sup(arc, arv);
 	y = getline(&buf, &n, strm);
 	if (buf == NULL)
 	{
@@ -106,12 +98,16 @@ int main(int arc, char **arv)
 	fclose(strm);
 	return (0);
 }
-
-void built_ins()
+/**
+*built_ins - manage built in functions
+*Return: nothing
+*/
+void built_ins(void)
 {
 	int ck = 0, ck2 = 1;
 	int i = 0;
 	void (*fn_ptr)(stack_t **stack, unsigned int line_number) = NULL;
+
 	while ((ls[i]).opcode != NULL)
 	{
 		if (strcmp(command, (ls[i]).opcode) == 0)
