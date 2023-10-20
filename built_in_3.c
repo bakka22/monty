@@ -29,3 +29,28 @@ void mod(stack_t **stack, unsigned int line_number)
 	free(tmp);
 
 }
+/**
+*pchar - monty command
+*@stack: stack to work on
+*@line_number: number of current line
+*Retrun: nothing
+*/
+void pchar(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp = *stack;
+
+	(void)line_number;
+
+	if (!tmp)
+	{
+		err_code = 14;
+		err();
+	}
+	if (tmp->n < 0 || tmp->n > 177)
+	{
+		err_code = 13;
+		err();
+	}
+	putchar(tmp->n);
+	putchar('\n');
+}

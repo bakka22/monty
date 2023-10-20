@@ -26,6 +26,15 @@ int is_num(void)
 */
 void err_sup(void)
 {
+	switch (err_code)
+	{
+		case 13:
+			fprintf(stderr, "L%d: can't pchar, value out of range\n", line);
+			break;
+		case 14:
+			fprintf(stderr, "L%d: can't pchar, stack empt\n", line);
+			break;
+	}
 	free_stack();
 	fclose(strm);
 	free(command);
