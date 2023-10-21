@@ -99,3 +99,25 @@ void rotl(stack_t **stack, unsigned int line_number)
 	tmp2->next = NULL;
 	(*stack)->prev = NULL;
 }
+/**
+*rotl - monty command
+*@stack: stack to work on
+*@line_number: number of current line
+*Retrun: nothing
+*/
+void rotl(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp, *tmp2;
+
+	(void)line_number;
+	tmp = tmp2 = (*stack);
+	if (!tmp || !(tmp->next))
+		return;
+	while (tmp->next)
+		tmp = tmp->next;
+	tmp->next = tmp2;
+	tmp->prev->next = NULL;
+	tmp->prev = NULL;
+	tmp2->prev = tmp;
+	(*stack) = tmp;
+}
