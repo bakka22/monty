@@ -7,6 +7,8 @@ int is_num(void)
 {
 	int i = 0, is_n = 0;
 
+	if (arg[0] == '-')
+		i++;
 	while (arg[i])
 	{
 		if (arg[i] >= 48 && arg[i] <= 57)
