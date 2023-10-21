@@ -19,6 +19,7 @@ instruction_t ls[] = {
 {"mod", &mod},
 {"pchar", &pchar},
 {"pstr", &pstr},
+{"rotl", &rotl},
 {NULL, NULL}
 };
 #endif
