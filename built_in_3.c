@@ -74,3 +74,30 @@ void pstr(stack_t **stack, unsigned int line_number)
 	}
 	printf("\n");
 }
+/**
+*rotl - monty command
+*@stack: stack to work on
+*@line_number: number of current line
+*Retrun: nothing
+*/
+void rotl(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp, *tmp2;
+
+	(void)line_number;
+
+	tmp = tmp2 = (*stack);
+	if (!tmp || !(tmp->next))
+		return;
+	while (tmp)
+	{
+		if (tmp2)
+			tmp2 = tmp2->next;
+		tmp->next = tmp->prev;
+		tmp->prev = tmp2;
+		if (tmp->prev == NULL)
+			(*stack) = tmp;
+		tmp = tmp2;
+	}
+
+}

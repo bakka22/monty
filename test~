@@ -1,24 +1,4 @@
-pstr
-         push   48
- push  49
-nop                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
-
-
-
-nop
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          push         50 
-
-push 51 dmciosndciushnurhnicmisdmdioncio                                 
-  pall     fwefwigbduihuwdsnisk     
-add
-nop
+push 1
 pall
-pstr
-pop
-pop
+rotl
 pall
-pall
-pop
-pall
-pop
