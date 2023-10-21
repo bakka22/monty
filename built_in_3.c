@@ -89,15 +89,13 @@ void rotl(stack_t **stack, unsigned int line_number)
 	tmp = tmp2 = (*stack);
 	if (!tmp || !(tmp->next))
 		return;
-	while (tmp)
+	while (tmp->next)
 	{
-		if (tmp2)
-			tmp2 = tmp2->next;
-		tmp->next = tmp->prev;
-		tmp->prev = tmp2;
-		if (tmp->prev == NULL)
-			(*stack) = tmp;
-		tmp = tmp2;
+		tmp = tmp->next;
 	}
-
+	(*stack) = tmp2->next;
+	tmp->next = tmp2;
+	tmp2->prev = tmp;
+	tmp2->next = NULL;
+	(*stack)->prev = NULL;
 }
