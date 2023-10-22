@@ -15,6 +15,7 @@ void mode(stack_t **stack, unsigned int line_number)
 *queue_push - change mode (stack, queue)
 *Return: nothing
 */
+/*
 void queue_push(void)
 {
 	stack_t *tmp, *new;
@@ -42,3 +43,4 @@ void queue_push(void)
 		new->next = NULL;
 	}
 }
+*/

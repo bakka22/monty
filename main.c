@@ -66,8 +66,8 @@ int main(int arc, char **arv)
 	size_t n = 0;
 	ssize_t y = 0;
 
-	mode_ = malloc(sizeof(char) * 6);
-	strcpy(mode_, "stack");
+	/*mode_ = malloc(sizeof(char) * 6);
+	strcpy(mode_, "stack");*/
 	sup(arc, arv);
 	y = getline(&buf, &n, strm);
 	if (buf == NULL)
@@ -96,7 +96,7 @@ int main(int arc, char **arv)
 	}
 	free_stack();
 	free(buf);
-	free(mode_);
+	/*free(mode_);*/
 	buf = NULL;
 	fclose(strm);
 	return (0);

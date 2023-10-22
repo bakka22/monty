@@ -4,7 +4,7 @@ stack_t *top = NULL;
 int line = 0;
 char *buf = NULL, *command = NULL, *arg = NULL;
 int err_code = 0;
-char *mode_;
+/*char *mode_;*/
 FILE *strm = NULL;
 instruction_t ls[] = {
 {"push", &push},
@@ -22,7 +22,7 @@ instruction_t ls[] = {
 {"pstr", &pstr},
 {"rotl", &rotl},
 {"rotr", &rotr},
-{"stack", &mode},
+/*{"stack", &mode},*/
 /*{"queue", &mode},*/
 {NULL, NULL}
 };

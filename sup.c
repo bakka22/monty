@@ -43,7 +43,7 @@ void err_sup(void)
 	command = NULL;
 	free(buf);
 	buf = NULL;
-	free(mode_);
+	/*free(mode_);*/
 	exit(EXIT_FAILURE);
 }
 /**

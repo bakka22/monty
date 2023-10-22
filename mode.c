@@ -5,12 +5,13 @@
 *@line_number : ...
 *Return: nothing
 */
+/*
 void mode(stack_t **stack, unsigned int line_number)
 {
 	(void)stack;
 	(void)line_number;
 	strcpy(mode_, command);
-}
+}*/
 /**
 *queue_push - change mode (stack, queue)
 *Return: nothing
