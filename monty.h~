@@ -56,7 +56,7 @@ void built_ins(void);
 extern FILE *strm;
 extern stack_t *top;
 extern int line;
-extern char *mode_;
+/*extern char *mode_;*/
 extern char *buf, *command, *arg;
 extern instruction_t ls[];
 extern int err_code;

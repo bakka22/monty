@@ -23,7 +23,7 @@ instruction_t ls[] = {
 {"rotl", &rotl},
 {"rotr", &rotr},
 {"stack", &mode},
-/*{"queue", &mode},*/
+{"queue", &mode},
 {NULL, NULL}
 };
 #endif
