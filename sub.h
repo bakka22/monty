@@ -4,7 +4,7 @@ stack_t *top = NULL;
 int line = 0;
 char *buf = NULL, *command = NULL, *arg = NULL;
 int err_code = 0;
-char *mode_;
+char mode_[6];
 FILE *strm = NULL;
 instruction_t ls[] = {
 {"push", &push},
