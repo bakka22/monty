@@ -15,7 +15,6 @@ void push(stack_t **stack, unsigned int line_number)
 		err_code = 1;
 		err();
 	}
-	printf("mode: %s\n", mode_);
 	if (strcmp(mode_, "queue") == 0)
 	{
 		queue_push();

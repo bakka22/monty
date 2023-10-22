@@ -15,11 +15,11 @@ void push(stack_t **stack, unsigned int line_number)
 		err_code = 1;
 		err();
 	}
-	if (strcmp(mode_, "queue") == 0)
+	/*if (strcmp(mode_, "queue") == 0)
 	{
 		queue_push();
 		return;
-	}
+	}*/
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{

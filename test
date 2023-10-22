@@ -2,15 +2,22 @@ queue
 push 1
 push 2
 push 3
+swap
 pall
 stack
 push 4
 push 5
+add
 push 6
 pall
+pop
+push 7
 add
 pall
+nop
+add
 queue
+mul
 push 11111
 add
 pall
